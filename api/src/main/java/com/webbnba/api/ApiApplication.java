@@ -1,8 +1,14 @@
 package com.webbnba.api;
 
+import com.webbnba.keycloak.api.AuthApiClient;
+import com.webbnba.person.api.PersonApiClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableFeignClients(basePackageClasses = {AuthApiClient.class, PersonApiClient.class})
+@ConfigurationPropertiesScan
 @SpringBootApplication
 public class ApiApplication {
 
