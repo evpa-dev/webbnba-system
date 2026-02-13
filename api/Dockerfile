@@ -15,8 +15,7 @@ COPY settings.gradle.kts .
 COPY src ./src
 COPY openapi ./openapi
 
-RUN gradle --no-daemon clean build -x test
-RUN gradle publish --info
+RUN gradle --no-daemon clean bootJar -x test
 
 FROM eclipse-temurin:24-jre
 
